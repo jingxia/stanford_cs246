@@ -33,7 +33,6 @@ INDEX VERSION 1.127+/home/cloudera/workspace/.metadata/.plugins/org.eclipse.jdt.
 651408554.index
 217911729.index
 575271568.index
-680312502.index
 1729832637.index
 3404411502.index
 1113577863.index
