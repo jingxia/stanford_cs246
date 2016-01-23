@@ -1,5 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy>
-<typeInfo handle="=AssocRules/\/usr\/lib\/hadoop\/client\/hadoop-common.jar&lt;org.apache.hadoop.conf(Configured.class[Configured" modifiers="33" timestamp="1447102756000"/>
-<typeInfo handle="=AssocRules/\/usr\/lib\/hadoop\/client\/hadoop-common.jar&lt;org.apache.hadoop.util(Tool.class[Tool" modifiers="1537" timestamp="1447102756000"/>
-</typeInfoHistroy>
+<typeInfoHistroy/>

@@ -71,17 +71,23 @@ public class AssocRules {
 			String[] products = line.split(" ");
 			int i = 0;
 			int j = 0;
-			while (i < products.length - 1 && freq_prod.containsKey(products[i])) {
-				j = i + 1;
-				while (j < products.length && freq_prod.containsKey(products[j])) {
-					String[] pair = { products[i], products[j] };
-					Arrays.sort(pair);
-					pair_key.set(pair[0] + " " + pair[1]);
-					// System.out.println(pair_key);
-					context.write(pair_key, ONE);
-					j = j+1;
+			while (i < products.length - 1) {
+				if (freq_prod.containsKey(products[i])) {
+					j = i + 1;
+					while (j < products.length) {
+						if (freq_prod.containsKey(products[j])) {
+							String[] pair = { products[i], products[j] };
+							Arrays.sort(pair);
+							pair_key.set(pair[0] + " " + pair[1]);
+							// System.out.println(pair_key);
+							context.write(pair_key, ONE);
+						}
+						j = j + 1;
+
+					}
+
 				}
-				i = i+1;
+				i = i + 1;
 			}
 
 		}
@@ -97,46 +103,11 @@ public class AssocRules {
 			}
 			if (sum >= 100) {
 				freq_pair.put(key.toString(), sum);
-			}
-		}
-	}
-    
-	public static class Map2 extends
-			Mapper<LongWritable, Text, Text, IntWritable> {
-		private final static IntWritable ONE = new IntWritable(1);
-		private Text pair_key = new Text();
-
-		public void map(LongWritable key, Text value, Context context)
-				throws IOException, InterruptedException {
-			// System.out.println(value);
-			String line = value.toString();
-			String[] products = line.split(" ");
-			for (int i = 0; i < products.length - 1; i++) {
-				for (int j = i + 1; j < products.length; j++) {
-					String[] pair = { products[i], products[j] };
-					Arrays.sort(pair);
-					pair_key.set(pair[0] + " " + pair[1]);
-					// System.out.println(pair_key);
-					context.write(pair_key, ONE);
-				}
-			}
-
-		}
-	}
-
-	public static class Reduce2 extends
-			Reducer<Text, IntWritable, Text, IntWritable> {
-		public void reduce(Text key, Iterable<IntWritable> values,
-				Context context) throws IOException, InterruptedException {
-			int sum = 0;
-			for (IntWritable val : values) {
-				sum += val.get();
-			}
-			if (sum >= 100) {
 				context.write(key, new IntWritable(sum));
 			}
 		}
 	}
+    
  
     public static void main(String[] args) throws Exception {
         Configuration conf = new Configuration();
