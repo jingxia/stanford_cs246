@@ -1,0 +1,6 @@
+from user-user rec
+['Two and a Half Men', 'NBC 4 at Eleven', '2009 NCAA Basketball Tournament', 'FOX 28 News at 10pm', 'Family Guy']
+[ 757.6011181   784.7819589   827.60129547  908.48005348  861.17599929]
+from iter-iter rec
+['Access Hollywood', 'FOX 28 News at 10pm', 'NBC 4 at Eleven', '2009 NCAA Basketball Tournament', 'Family Guy']
+[ 28.97127767  31.36470168  29.39679777  29.22700156  30.0011418 ]
