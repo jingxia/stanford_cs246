@@ -1,0 +1,61 @@
+2016-01-25 21:15:29,926 INFO org.apache.hadoop.conf.Configuration.deprecation: session.id is deprecated. Instead, use dfs.metrics.session-id
+2016-01-25 21:15:29,927 INFO org.apache.hadoop.metrics.jvm.JvmMetrics: Initializing JVM Metrics with processName=JobTracker, sessionId=
+2016-01-25 21:15:30,086 WARN org.apache.hadoop.mapreduce.JobResourceUploader: Hadoop command-line option parsing not performed. Implement the Tool interface and execute your application with ToolRunner to remedy this.
+2016-01-25 21:15:30,087 WARN org.apache.hadoop.mapreduce.JobResourceUploader: No job jar file set.  User classes may not be found. See Job or Job#setJar(String).
+2016-01-25 21:15:30,095 INFO org.apache.hadoop.mapreduce.lib.input.FileInputFormat: Total input paths to process : 1
+2016-01-25 21:15:30,123 INFO org.apache.hadoop.mapreduce.JobSubmitter: number of splits:1
+2016-01-25 21:15:30,244 INFO org.apache.hadoop.mapreduce.JobSubmitter: Submitting tokens for job: job_local638720527_0001
+2016-01-25 21:15:30,386 INFO org.apache.hadoop.mapreduce.Job: The url to track the job: http://localhost:8080/
+2016-01-25 21:15:30,387 INFO org.apache.hadoop.mapreduce.Job: Running job: job_local638720527_0001
+2016-01-25 21:15:30,388 INFO org.apache.hadoop.mapred.LocalJobRunner: OutputCommitter set in config null
+2016-01-25 21:15:30,392 INFO org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter: File Output Committer Algorithm version is 1
+2016-01-25 21:15:30,393 INFO org.apache.hadoop.mapred.LocalJobRunner: OutputCommitter is org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter
+2016-01-25 21:15:30,430 INFO org.apache.hadoop.mapred.LocalJobRunner: Waiting for map tasks
+2016-01-25 21:15:30,430 INFO org.apache.hadoop.mapred.LocalJobRunner: Starting task: attempt_local638720527_0001_m_000000_0
+2016-01-25 21:15:30,458 INFO org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter: File Output Committer Algorithm version is 1
+2016-01-25 21:15:30,468 INFO org.apache.hadoop.mapred.Task:  Using ResourceCalculatorProcessTree : [ ]
+2016-01-25 21:15:30,470 INFO org.apache.hadoop.mapred.MapTask: Processing split: file:/home/cloudera/workspace/KMeans/data.txt:0+702940
+2016-01-25 21:15:30,515 INFO org.apache.hadoop.mapred.MapTask: (EQUATOR) 0 kvi 26214396(104857584)
+2016-01-25 21:15:30,515 INFO org.apache.hadoop.mapred.MapTask: mapreduce.task.io.sort.mb: 100
+2016-01-25 21:15:30,515 INFO org.apache.hadoop.mapred.MapTask: soft limit at 83886080
+2016-01-25 21:15:30,515 INFO org.apache.hadoop.mapred.MapTask: bufstart = 0; bufvoid = 104857600
+2016-01-25 21:15:30,515 INFO org.apache.hadoop.mapred.MapTask: kvstart = 26214396; length = 6553600
+2016-01-25 21:15:30,518 WARN org.apache.hadoop.mapred.MapTask: Unable to initialize MapOutputCollector org.apache.hadoop.mapred.MapTask$MapOutputBuffer
+java.lang.NullPointerException
+	at org.apache.hadoop.mapred.MapTask$MapOutputBuffer.init(MapTask.java:1012)
+	at org.apache.hadoop.mapred.MapTask.createSortingCollector(MapTask.java:402)
+	at org.apache.hadoop.mapred.MapTask.access$100(MapTask.java:81)
+	at org.apache.hadoop.mapred.MapTask$NewOutputCollector.<init>(MapTask.java:698)
+	at org.apache.hadoop.mapred.MapTask.runNewMapper(MapTask.java:770)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:341)
+	at org.apache.hadoop.mapred.LocalJobRunner$Job$MapTaskRunnable.run(LocalJobRunner.java:243)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+2016-01-25 21:15:30,520 INFO org.apache.hadoop.mapred.LocalJobRunner: map task executor complete.
+2016-01-25 21:15:30,520 WARN org.apache.hadoop.mapred.LocalJobRunner: job_local638720527_0001
+java.lang.Exception: java.io.IOException: Initialization of all the collectors failed. Error in last collector was :null
+	at org.apache.hadoop.mapred.LocalJobRunner$Job.runTasks(LocalJobRunner.java:462)
+	at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:522)
+Caused by: java.io.IOException: Initialization of all the collectors failed. Error in last collector was :null
+	at org.apache.hadoop.mapred.MapTask.createSortingCollector(MapTask.java:414)
+	at org.apache.hadoop.mapred.MapTask.access$100(MapTask.java:81)
+	at org.apache.hadoop.mapred.MapTask$NewOutputCollector.<init>(MapTask.java:698)
+	at org.apache.hadoop.mapred.MapTask.runNewMapper(MapTask.java:770)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:341)
+	at org.apache.hadoop.mapred.LocalJobRunner$Job$MapTaskRunnable.run(LocalJobRunner.java:243)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at org.apache.hadoop.mapred.MapTask$MapOutputBuffer.init(MapTask.java:1012)
+	at org.apache.hadoop.mapred.MapTask.createSortingCollector(MapTask.java:402)
+	... 10 more
+2016-01-25 21:15:31,389 INFO org.apache.hadoop.mapreduce.Job: Job job_local638720527_0001 running in uber mode : false
+2016-01-25 21:15:31,390 INFO org.apache.hadoop.mapreduce.Job:  map 0% reduce 0%
+2016-01-25 21:15:31,392 INFO org.apache.hadoop.mapreduce.Job: Job job_local638720527_0001 failed with state FAILED due to: NA
+2016-01-25 21:15:31,397 INFO org.apache.hadoop.mapreduce.Job: Counters: 0
